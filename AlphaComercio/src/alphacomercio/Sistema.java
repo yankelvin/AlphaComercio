@@ -14,7 +14,7 @@ public class Sistema {
     }
 
     public void lerArquivo() {
-        String arquivo = "src/alphacomercio/ceps.txt";
+        String arquivo = "src//alphacomercio//ceps.txt";
 
         System.out.printf("\nConteúdo do arquivo texto:\n");
         try (FileReader arq = new FileReader(arquivo)) {
