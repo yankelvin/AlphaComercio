@@ -26,10 +26,11 @@ public class Sistema {
 	}
 
 	public void iniciar() {
-		System.out.println("------ MENU ------");
-		System.out.println("1 - Ler arquivo");
-		System.out.println("2 - Fazer busca por CEP\n");
-		System.out.println("3 - Fazer busca por logradouros do bairro.");
+		System.out.println("\n***** ALPHA COMÉRCIO *****");
+		System.out.println("\n------ MENU ------");
+		System.out.println("1 - Fazer busca por CEP");
+		System.out.println("2 - Fazer busca por logradouros do bairro.");
+		System.out.println("0 - Finalizar o programa.\n");
 	}
 
 	public void lerArquivo() {
