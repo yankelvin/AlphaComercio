@@ -1,14 +1,16 @@
 package alphacomercio;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bairro {
 
     private String nomeBairro;
-    private final HashMap<String, Logradouro> logradouros;
+    //private final HashMap<String, Logradouro> logradouros;
+    private final ArrayList<Logradouro> logradouros;
 
     public Bairro() {
-        this.logradouros = new HashMap<>();
+        this.logradouros = new ArrayList<>();
     }
 
     public Bairro(String nomeBairro) {
@@ -24,12 +26,12 @@ public class Bairro {
         this.nomeBairro = nomeBairro;
     }
 
-    public HashMap<String, Logradouro> getLogradouros() {
+    public ArrayList<Logradouro> getLogradouros() {
         return logradouros;
     }
 
     public void addLogradouro(Logradouro logradouro) {
-        this.logradouros.put(logradouro.getCep(), logradouro);
+        this.logradouros.add(logradouro);
     }
 
     @Override

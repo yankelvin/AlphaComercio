@@ -20,8 +20,12 @@ public class Logradouro {
         this.bairro = bairro;
         this.nomeLogradouro = nomeLogradouro;
     }
+    
+    public Logradouro(String nomeLogradouro) {
+		this.nomeLogradouro = nomeLogradouro;
+	}
 
-    public String getCep() {
+	public String getCep() {
         return cep;
     }
 

@@ -1,0 +1,27 @@
+public void buscarLogradourosDoBairro() {
+		System.out.println("Nome da UF: ");
+		String siglaUf = in.next();
+
+		UnidadeFederacao UF = ufs.get(siglaUf); // Busca unidade de federação
+		if (UF != null) {
+			System.out.println("Nome cidade: ");
+			String nomeCidade = in.next();
+
+			Cidade cidade = UF.getCidades().get(nomeCidade); // Busca cidade
+			if (cidade != null) {
+				System.out.println("Nome do bairro: ");
+				String nomeBairro = in.next();
+
+				Bairro bairro = cidade.getBairros().get(nomeBairro);
+				for (int i = 0; i < bairro.getLogradouros().size(); i++) {
+					// System.out.println(logradouros.get(i));
+				}
+
+			} else {
+				System.out.println("Cidade não encontrada.");
+			}
+		} else {
+			System.out.println("UF não encontrada.");
+		}
+
+	}
