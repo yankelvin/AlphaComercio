@@ -1,11 +1,8 @@
 package alphacomercio;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -14,14 +11,10 @@ public class Sistema {
 	Scanner in = new Scanner(System.in);
 	Scanner in1 = new Scanner(System.in);
 	private final HashMap<String, Logradouro> logradouros;
-	private final HashMap<String, ArrayList<Cidade>> cidades;
-	private final HashMap<String, ArrayList<Bairro>> bairros;
 	private final HashMap<String, UnidadeFederacao> ufs;
 
 	public Sistema() {
 		this.logradouros = new HashMap<>();
-		this.cidades = new HashMap<>();
-		this.bairros = new HashMap<>();
 		this.ufs = new HashMap<>();
 	}
 
@@ -36,7 +29,7 @@ public class Sistema {
 	public void lerArquivo() {
 		String arquivo = "AlphaComercio/src/alphacomercio/ceps.txt";
 
-		System.out.printf("\nConteúdo do arquivo texto:\n");
+		System.out.printf("\nCarregando arquivo...\n");
 		try (FileReader arq = new FileReader(arquivo)) {
 			BufferedReader lerArq = new BufferedReader(arq);
 
@@ -81,6 +74,7 @@ public class Sistema {
 				this.logradouros.put(cep, logradouro);
 				linha = lerArq.readLine();
 			}
+			System.out.println("Carregamento concluído!");
 			arq.close();
 		} catch (IOException e) {
 			System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
@@ -97,7 +91,7 @@ public class Sistema {
 		System.out.println("Nome Logradouro: " + logradouro.getNomeLogradouro());
 	}
 
-	public void buscarLogradourosBairro() {
+	public void carregarArquivo() {
 		String arquivo = "AlphaComercio/src/alphacomercio/ceps.txt";
 
 		try {
@@ -180,8 +174,10 @@ public class Sistema {
 			System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
 
 		}
-		
-		System.out.println("\nInsira as informações abaixo");
+	}
+	
+	public void buscarLogradourosBairro() {
+		System.out.println("\nInsira as informações abaixo:");
 		System.out.println("\nSigla da UF:");
 		String nomeUF = in.next();
 

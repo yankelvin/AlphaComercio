@@ -22,6 +22,7 @@ public class AlphaComercio {
 				sis.buscarLogradouro(cep);
 				break;
 			case 2:
+				sis.carregarArquivo();
 				sis.buscarLogradourosBairro();
 				break;
 			case 0:
