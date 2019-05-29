@@ -1,6 +1,0 @@
-49096300	Aracaju/SE	Jabotiana	Rua Principal (Aloc)
-49096310	Aracaju/SE	Jabotiana	Rua Maria Terezinha de Carvalho
-49097000	Aracaju/SE	Ponto Novo	Avenida São João Batista
-49097010	Aracaju/SE	Ponto Novo	Rua Acre - de 2505/2506 ao fim
-49090670	Aracaju/SE	Bugio	Rua E3
-49090680	Aracaju/SE	Bugio	Rua Maria Sales Rodrigues
