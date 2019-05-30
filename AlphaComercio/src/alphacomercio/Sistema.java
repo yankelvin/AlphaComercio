@@ -12,7 +12,10 @@ public class Sistema {
 	Scanner in1 = new Scanner(System.in);
 	private final HashMap<String, Logradouro> logradouros;
 	private final HashMap<String, UnidadeFederacao> ufs;
-
+        long init;
+        long end;
+        long diff;
+        
 	public Sistema() {
 		this.logradouros = new HashMap<>();
 		this.ufs = new HashMap<>();
@@ -27,7 +30,8 @@ public class Sistema {
 	}
 
 	public void lerArquivo() {
-		String arquivo = "AlphaComercio/src/alphacomercio/ceps.txt";
+                init = System.currentTimeMillis();
+		String arquivo = "src/alphacomercio/ceps.txt";
 
 		System.out.printf("\nCarregando arquivo...\n");
 		try (FileReader arq = new FileReader(arquivo)) {
@@ -75,6 +79,9 @@ public class Sistema {
 				linha = lerArq.readLine();
 			}
 			System.out.println("Carregamento concluído!");
+                        end = System.currentTimeMillis();
+                        diff = end - init;
+                        System.out.println("Demorou " + (diff/ 1000.0) + " segundos para ler o arquivo");
 			arq.close();
 		} catch (IOException e) {
 			System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
@@ -84,15 +91,20 @@ public class Sistema {
 	}
 
 	public void buscarLogradouro(String cep) {
+                init = System.nanoTime();
 		Logradouro logradouro = this.logradouros.get(cep);
 		System.out.println("Nome cidade: " + logradouro.getCidade().getNomeCidade());
 		System.out.println("Nome bairro: " + logradouro.getBairro().getNomeBairro());
 		System.out.println("UF: " + logradouro.getUnidadeFederacao().getSiglaUnidadeFederacao());
 		System.out.println("Nome Logradouro: " + logradouro.getNomeLogradouro());
+                end = System.nanoTime();
+                diff = end - init;
+                System.out.println("Demorou " + (diff/1000000.0) + " milissegundos para finalizar o método CEP");
 	}
 
 	public void carregarArquivo() {
-		String arquivo = "AlphaComercio/src/alphacomercio/ceps.txt";
+                init = System.currentTimeMillis();
+		String arquivo = "src/alphacomercio/ceps.txt";
 
 		try {
 			System.out.println("Carregando arquivo...");
@@ -169,6 +181,9 @@ public class Sistema {
 			}
 			
 			System.out.println("Carregamento concluído!");
+                        end = System.currentTimeMillis();
+                        diff = end - init;
+                        System.out.println("Demorou " + (diff / 1000.0) + " segundos para ler o arquivo");
 			arq.close();
 		} catch (IOException e) {
 			System.err.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
